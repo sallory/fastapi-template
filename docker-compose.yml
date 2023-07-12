@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: compose/local/api.dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/code:cached
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:13.4
+    volumes:
+      - pg-data:/var/lib/postgresql/data/pgdata
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+
+
+volumes:
+  pg-data: {}

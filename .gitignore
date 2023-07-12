@@ -1,0 +1,13 @@
+.mypy_cache
+.idea
+.env
+
+.vscode
+.vscode/*
+
+# Translations
+*.mo
+*.pot
+*.po
+
+.DS_Store
