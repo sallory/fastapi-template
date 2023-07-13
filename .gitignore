@@ -11,3 +11,10 @@
 *.po
 
 .DS_Store
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.*.pyc
+*.py[cod]
+*$py.class

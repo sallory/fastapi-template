@@ -1,9 +1,10 @@
 from uuid import UUID
 
 import sqlalchemy as sa
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import TimedBaseModel
+from .items import Item
 
 
 class User(TimedBaseModel):
@@ -15,3 +16,5 @@ class User(TimedBaseModel):
     last_name: Mapped[str]
     middle_name: Mapped[str | None]
     is_active: Mapped[bool] = mapped_column(server_default=sa.True_())
+
+    items: Mapped[list[Item]] = relationship("Item", back_populates="user")

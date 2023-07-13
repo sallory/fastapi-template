@@ -1,8 +1,8 @@
-from typing import Callable
+from typing import Callable, Hashable
 
 
 class Stub:
-    def __init__(self, dependency: Callable, **kwargs):
+    def __init__(self, dependency: Callable, **kwargs: Hashable):
         self._dependency = dependency
         self._kwargs = kwargs
 
