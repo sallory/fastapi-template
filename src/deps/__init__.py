@@ -1,3 +1,2 @@
 from .repo import get_repo
-from .session import get_session
-from .stub import Stub
+from .session import get_async_session

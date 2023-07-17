@@ -6,7 +6,7 @@ from sqlalchemy import engine_from_config, pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import AsyncEngine
 
-from src.core.config import settings
+from src.core.config import db_config
 # from src.database.models import * # Noqa
 from src.database.models.base import BaseModel
 
@@ -43,7 +43,7 @@ def run_migrations_offline() -> None:
 
     """
     context.configure(
-        url="postgresql+asyncpg://postgres:postgres@postgres:5432/local",
+        url=db_config.database_url,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
@@ -67,7 +67,7 @@ async def run_async_migrations() -> None:
             prefix="sqlalchemy.",
             poolclass=pool.NullPool,
             future=True,
-            url="postgresql+asyncpg://postgres:postgres@postgres:5432/local",
+            url=db_config.database_url,
         )
     )
 

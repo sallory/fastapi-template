@@ -1,8 +1,9 @@
 from uuid import UUID
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 
 from src import schemas, deps
+from src.repo import exceptions as repo_exc
 from src.repo.user_repo import UserRepo
 
 router = APIRouter()
@@ -25,7 +26,11 @@ async def read_users_with_items(
         user_repo: UserRepo = Depends(deps.get_repo(UserRepo)),
 ) -> schemas.UserWithItems:
     """
-    Retrieve users with items.
+    Retrieve user with items.
     """
-    user = await user_repo.get_user_with_items(user_id)
+    try:
+        user = await user_repo.get_user_with_items(user_id)
+    except repo_exc.NotFound:
+        raise HTTPException(status_code=404, detail="User not found")
+
     return user

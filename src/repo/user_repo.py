@@ -6,7 +6,7 @@ from sqlalchemy.orm import joinedload
 from src import schemas
 from src.database.models import User
 from .base import SQLAlchemyRepo
-from .exceptions import RepoError
+from .exceptions import NotFound
 
 
 class UserRepo(SQLAlchemyRepo):
@@ -24,6 +24,6 @@ class UserRepo(SQLAlchemyRepo):
         result = await self._session.scalar(stmt)
 
         if result is None:
-            raise RepoError("User not found")
+            raise NotFound("User not found")
 
         return schemas.UserWithItems.model_validate(result)

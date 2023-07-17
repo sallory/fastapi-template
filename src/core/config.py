@@ -1,8 +1,13 @@
 from pydantic_settings import BaseSettings
 
 
-class Settings(BaseSettings):
+class DBConfig(BaseSettings):
     database_url: str
 
 
-settings = Settings()
+class AppConfig(BaseSettings):
+    pass
+
+
+db_config = DBConfig()
+app_config = AppConfig()

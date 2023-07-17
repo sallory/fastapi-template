@@ -1,2 +1,2 @@
-class RepoError(Exception):
+class NotFound(Exception):
     pass
