@@ -3,7 +3,7 @@ services:
 
   api:
     build:
-      context: .
+      context: ..
       dockerfile: compose/local/api.dockerfile
     ports:
       - "8000:8000"

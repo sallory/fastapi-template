@@ -1,5 +1,5 @@
 .mypy_cache
-.idea
+../.idea
 .env
 
 .vscode
