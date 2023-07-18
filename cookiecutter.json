@@ -1,8 +1,4 @@
 {
-    "project_name": "Base Project",
-    "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
-
-    "secret_key": "changethis",
-
-    "postgres_password": "changethis"
+    "project_name": "Project Name",
+    "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}"
 }
