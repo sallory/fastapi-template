@@ -6,7 +6,7 @@ class DBConfig(BaseSettings):
 
 
 class AppConfig(BaseSettings):
-    pass
+    jwt_secret_key: str
 
 
 db_config = DBConfig()

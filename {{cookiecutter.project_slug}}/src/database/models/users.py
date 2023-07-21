@@ -16,5 +16,6 @@ class User(TimedBaseModel):
     last_name: Mapped[str]
     middle_name: Mapped[str | None]
     is_active: Mapped[bool] = mapped_column(server_default=sa.True_())
+    hashed_password: Mapped[str]
 
     items: Mapped[list[Item]] = relationship("Item", back_populates="user")

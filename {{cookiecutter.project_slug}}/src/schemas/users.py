@@ -5,10 +5,9 @@ from pydantic import BaseModel, ConfigDict
 
 
 class UserBase(BaseModel):
-    username: Optional[str] = None
-    is_active: Optional[bool] = True
-    is_superuser: Optional[bool] = False
-    full_name: Optional[str] = None
+    first_name: str = None
+    last_name: str = None
+    middle_name: Optional[str] = None
 
 
 class UserCreate(UserBase):
@@ -23,7 +22,8 @@ class UserUpdate(UserBase):
 class UserInDBBase(UserBase):
     model_config = ConfigDict(from_attributes=True)
 
-    id: Optional[UUID] = None
+    id: UUID
+    is_active: bool
 
 
 class User(UserInDBBase):

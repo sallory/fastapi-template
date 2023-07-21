@@ -5,4 +5,6 @@ uvicorn[standard]==0.22.0
 alembic==1.11.1
 asyncpg==0.28.0
 SQLAlchemy==2.0.18
-pydantic-settings
+pydantic-settings==2.0.2
+passlib[bcrypt]==1.7.0
+pyjwt==2.4.0

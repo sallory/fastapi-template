@@ -2,14 +2,19 @@ import logging
 
 from fastapi import FastAPI
 
-from src.api import api_router
+from src.api import setup_routers
+from src.exceptions.exc_handlers import setup_exc_handlers
 
 logging.basicConfig(format='%(levelname)s [%(asctime)s / %(filename)s]: %(message)s', level=logging.INFO)
 
-app = FastAPI()
-
-app.include_router(api_router, prefix="/api")
-
 
 def app_builder():
-    pass
+    _app = FastAPI()
+
+    setup_routers(_app)
+    setup_exc_handlers(_app)
+
+    return _app
+
+
+app = app_builder()
