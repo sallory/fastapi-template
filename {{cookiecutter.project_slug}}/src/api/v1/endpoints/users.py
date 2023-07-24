@@ -2,7 +2,7 @@ from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
 
-from src import schemas, deps
+from src import deps, schemas
 from src.exceptions import repo as repo_exc
 from src.repo.user_repo import UserRepo
 from src.services.auth import Authenticator

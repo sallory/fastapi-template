@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from src import schemas, deps
+from src import deps, schemas
 from src.repo.item_repo import ItemRepo
 
 router = APIRouter()

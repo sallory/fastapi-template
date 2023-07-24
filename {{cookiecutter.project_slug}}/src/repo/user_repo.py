@@ -1,10 +1,11 @@
 from uuid import UUID
 
-from sqlalchemy import select, insert
+from sqlalchemy import insert, select
 from sqlalchemy.orm import joinedload
 
 from src import schemas
 from src.database.models import User
+
 from .base import SQLAlchemyRepo
 from .exceptions import NotFound
 

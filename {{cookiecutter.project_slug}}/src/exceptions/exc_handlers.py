@@ -1,6 +1,6 @@
 from typing import TypeVar
 
-from fastapi import Request, FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from starlette.status import HTTP_403_FORBIDDEN
 

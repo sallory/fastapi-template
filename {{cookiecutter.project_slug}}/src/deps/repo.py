@@ -1,9 +1,10 @@
-from typing import Type, AsyncGenerator
+from typing import AsyncGenerator, Type
 
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.repo.base import SQLAlchemyRepo
+
 from .session import get_async_session
 
 

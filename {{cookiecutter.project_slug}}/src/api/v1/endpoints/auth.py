@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 
-from src import schemas, deps
+from src import deps, schemas
 from src.repo.user_repo import UserRepo
 from src.services.auth import Authenticator
 
