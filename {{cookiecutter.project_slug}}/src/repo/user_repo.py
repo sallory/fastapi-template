@@ -23,6 +23,8 @@ class UserRepo(SQLAlchemyRepo):
 
         user = await self._session.scalar(stmt)
 
+        await self._session.commit()
+
         return schemas.User.model_validate(user)
 
     async def get(self, user_id: UUID) -> schemas.User:
