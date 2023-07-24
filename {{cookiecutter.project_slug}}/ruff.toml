@@ -8,7 +8,8 @@ select = [
 ]
 
 ignore = [
-    "B008",  # do not perform function calls in argument defaults
+    "B008",  # do not perform function calls in argument defaults,
+    "B904",  # raise-without-from-inside-except
 ]
 
 line-length = 119
